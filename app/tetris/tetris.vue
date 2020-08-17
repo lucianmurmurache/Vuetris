@@ -1,9 +1,26 @@
 <template>
-  <div class="tetris"></div>
+  <div class="tetris">
+    <player
+      :stage="stage"
+      :keys="{
+        straight: 32,
+        left: 37,
+        rotate: 38,
+        right: 39,
+        down: 40,
+      }"
+      ref="player"
+    />
+  </div>
 </template>
+
 <script>
+import player from "./player.vue";
+import stageComputed from "./stageComputed";
+
 export default {
   name: "tetris",
+  mixins: [stageComputed],
   data() {
     return {
       stage: {
@@ -197,6 +214,7 @@ export default {
         blocks: ["I", "O", "T", "S", "Z", "J", "L"]
       }
     };
-  }
+  },
+  components: { player }
 };
 </script>
