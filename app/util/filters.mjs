@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import _ from 'lodash'
 
-Vue.filter('numberComma', n => `${n || 0}`.replace(/\B(?=(\d{3})+(?!\d))/g, ','))
+Vue.filter('numberComma',
+  n => `${n || 0}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+)
 _.forEach(
   [
     'ceil',

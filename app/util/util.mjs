@@ -5,7 +5,14 @@ export function sum(a, b) {
 }
 
 let lodash = _.runInContext()
-export let lodashMixin = _(['pull', 'pullAll', 'pullAllBy', 'pullAllWith', 'pullAt', 'remove'])
+export let lodashMixin = _([
+  'pull',
+  'pullAll',
+  'pullAllBy',
+  'pullAllWith',
+  'pullAt',
+  'remove'
+])
   .map(fnName => {
     let fn = lodash[fnName]
     return [

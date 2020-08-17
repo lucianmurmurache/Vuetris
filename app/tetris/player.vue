@@ -31,7 +31,7 @@
         :key="curBlock.id"
       />
     </div>
-    <!-- == Next tetromino== -->
+    <!-- ==Next tetromino== -->
     <div class="panel">
       <h2 class="nextText">Next block</h2>
       <div class="nextBox">
@@ -249,8 +249,9 @@ export default {
       let { shadow, block, ground } = this.$refs;
       let { idx, x, y } = block;
       Object.assign(shadow, { idx, x, y });
-      while (!ground.checkTouched(shadow.predictMove(0, -1)))
+      while (!ground.checkTouched(shadow.predictMove(0, -1))) {
         shadow.move(0, -1);
+      }
     },
     rotate() {
       let { block, ground } = this.$refs;
