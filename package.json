@@ -1,0 +1,59 @@
+{
+  "name": "Vuetris",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Tetris game",
+  "keywords": [],
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.7.2",
+    "push-dir": "^0.4.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "uglify-js": "^2.8.0",
+    "uglifyjs-webpack-plugin": "0.4.3",
+    "vue": "^2.5.13",
+    "vue-loader": "^13.6.2",
+    "vue-template-compiler": "^2.5.13",
+    "vuejs-loader": "^2.1.0",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.5.1",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jasmine": "^2.8.4",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --content-base public/ --hot",
+    "build": "webpack",
+    "build:prod": "webpack --env.prod",
+    "gh-pages": "npm run build:prod && node node_modules/push-dir/bin/push-dir --dir=public --branch=gh-pages --cleanup",
+    "lint": "eslint app test --ext .js,.mjs,.vue",
+    "lint:fix": "eslint app test --ext .js,.mjs,.vue --fix"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git"
+  },
+  "author": {
+    "name": "Lucian Murmurache",
+    "email": "lucian@murmurache.com",
+    "homepage": "https://murmurache.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^3.6.1"
+  }
+}

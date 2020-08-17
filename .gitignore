@@ -1,0 +1,8 @@
+node_modules
+.DS_STORE
+.netbeans
+.node_history
+.vscode
+.tscache
+.idea
+.eslintrc
