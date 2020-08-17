@@ -227,6 +227,73 @@ export default {
       this.curBlock = null;
       allPushed ? this.next() : this.gameover(); // Check "gameover?"
       this.playFX("drop");
+    },
+    move(x, y) {
+      let { block, ground } = this.$refs;
+      let touched = ground.checkTouched(block.predictMove(x, y));
+      if (!touched) {
+        block.move(x, y);
+        this.updateShadow();
+      } else if (y < 0) this.pushBlock(); // Down and touch
+      return touched;
+    },
+    moveStraight() {
+      while (!this.move(0, -1)) {}
+      this.getScore(21 + 3 * this.level);
+    },
+    getScore(v) {
+      if (!this.canPlay) return;
+      this.score += v;
+    },
+    updateShadow() {
+      let { shadow, block, ground } = this.$refs;
+      let { idx, x, y } = block;
+      Object.assign(shadow, { idx, x, y });
+      while (!ground.checkTouched(shadow.predictMove(0, -1)))
+        shadow.move(0, -1);
+    },
+    rotate() {
+      let { block, ground } = this.$refs;
+      let rotate = block.predictRotate();
+      let touched = ground.checkTouched(rotate);
+      if (!touched) {
+        block.rotate(0);
+        this.updateShadow();
+        return;
+      }
+      let x = rotate.map(([x]) => x);
+      _(1)
+        .range(_.max(x) - _.min(x) + 1)
+        .flatMap(x => [-x, x])
+        .forEach(x => {
+          if (ground.checkTouched(block.predictRotate(x))) return;
+          block.rotate(x);
+          this.updateShadow();
+          return false;
+        });
+    },
+    createNextBlock() {
+      let type = _.sample(this.blocks);
+      let shapes = this.blockType[type];
+      this.nextBlock = { shapes, pos: [0, 0], class: type, id: blockId++ };
+    },
+    gameover() {
+      if (this.state.gameover) return;
+      Object.assign(this.state, { gameover: true, playing: false });
+      this.clearTick();
+      this.$emit("gameover", this);
+      this.playBgm("gameover", false);
+    },
+    next() {
+      this.curBlock = Object.assign({}, this.nextBlock);
+      this.curBlock.pos = [Math.floor(this.width / 2) - 1, this.height];
+      this.$nextTick(() => {
+        this.resetTick();
+        if (this.move(0, -1)) return;
+        let { block, ground } = this.$refs;
+        ground.checkTouched(block.predictMove(0, -1)) || block.move(0, -1);
+        this.createNextBlock();
+      });
     }
   },
   watch: {
