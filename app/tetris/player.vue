@@ -82,10 +82,10 @@
 </template>
 
 <script>
-import block from "./block.vue"; /* Not ready */
-import ground from "./ground.vue"; /* Also not ready */
-import stageComputed from "./stageComputed"; /* Has no errors so far */
-import soundService from "./soundService/soundService.mjs"; /* Not tested */
+import block from "./block.vue";
+import ground from "./ground.vue";
+import stageComputed from "./stageComputed";
+import soundService from "./soundService/soundService.mjs";
 
 let blockId = 0;
 export default {
@@ -253,14 +253,97 @@ export default {
   color: #fff;
   border: solid 2px #000;
   border-radius: 10px 10px 100px 10px;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
 }
-
-/* ====================To do next==================== */
-/**
-.game
-.buttons
-.next
-.score
-.state
-*/
+.player > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.game {
+  position: relative;
+  outline: solid 2px #444;
+  background: radial-gradient(circle at center, #002f86 0, #001845 100%);
+  overflow: hidden;
+  max-width: 95vw;
+  max-height: 95vh;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+}
+.buttons {
+  text-align: center;
+}
+.buttons button {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  background: radial-gradient(circle at center, #002f86 0, #001845 100%);
+  border-radius: 200px;
+  cursor: pointer;
+  border: 1px solid #444;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+}
+.buttons button:last-child {
+  padding: 0;
+  background: transparent;
+  font-size: 30px;
+  border: none;
+}
+.buttons button:focus {
+  outline: 0;
+}
+.panel {
+  padding: 0px 30px;
+}
+.nextText {
+  height: 20px;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgb(0, 0, 0);
+}
+.nextBox {
+  width: 180px;
+  height: 170px;
+  position: relative;
+  background: radial-gradient(circle at center, #002f86 0, #001845 100%);
+  border: 1px solid #444;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.75);
+}
+.nextBox .next {
+  position: absolute;
+  margin: 0;
+}
+.score {
+  margin: 20px 0;
+  text-shadow: 4px 4px 3px rgb(0, 0, 0);
+}
+.score .row {
+  font-size: 18px;
+  letter-spacing: 0;
+  padding: 5px 0;
+}
+.score .row h4 {
+  display: inline-block;
+  width: 60px;
+  margin: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+.score .row span {
+  display: inline-block;
+  width: 90px;
+  text-align: left;
+  vertical-align: middle;
+}
+.state {
+  text-align: center;
+  text-shadow: 4px 4px 3px rgb(0, 0, 0);
+}
 </style>
