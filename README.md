@@ -2,9 +2,9 @@
 
 ### Tetris built with Vue.js
 
-![Screenshot-1](https://github.com/lucianmurmurache/vuetris/blob/master/src/img/vuetris-1.png)
-![Screenshot-2](https://github.com/lucianmurmurache/vuetris/blob/master/src/img/vuetris-2.png)
-![Screenshot-3](https://github.com/lucianmurmurache/vuetris/blob/master/src/img/vuetris-3.png)
+![Screenshot-1](https://github.com/lucianmurmurache/Vuetris/blob/master/img/vuetris-1.png)
+![Screenshot-2](https://github.com/lucianmurmurache/Vuetris/blob/master/img/vuetris-2.png)
+![Screenshot-3](https://github.com/lucianmurmurache/Vuetris/blob/master/img/vuetris-3.png)
 
 ### Installation instructions
 
