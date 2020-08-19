@@ -1,5 +1,5 @@
 {
-  "name": "Vuetris",
+  "name": "vuetris",
   "private": true,
   "version": "1.0.0",
   "description": "Tetris game",
@@ -39,7 +39,6 @@
     "start": "webpack-dev-server --content-base public/ --hot",
     "build": "webpack",
     "build:prod": "webpack --env.prod",
-    "gh-pages": "npm run build:prod && node node_modules/push-dir/bin/push-dir --dir=public --branch=gh-pages --cleanup",
     "lint": "eslint app test --ext .js,.mjs,.vue",
     "lint:fix": "eslint app test --ext .js,.mjs,.vue --fix"
   },
